@@ -14,6 +14,7 @@ export const userInputZodSchema = z.object({
   username: z.string(),
   password: z.string().min(8),
   referralCode: z.string(),
+  referralStatus: z.enum(["PENDING", "CLAIMED"]).default("PENDING"),
   credits: z.number().default(0),
   referrerId: z.string().optional(),
 });
@@ -62,13 +63,16 @@ export type OrderType = z.infer<typeof orderZodSchema>;
 
 // OrderItemInput
 export const orderItemInputZodSchema = z.object({
-  orderId: z.string(),
   bookId: z.string(),
   quantity: z.number().int().positive(),
-  priceAtPurchase: z.number().positive(),
 });
 export type OrderItemInput = z.infer<typeof orderItemZodSchema>;
 
 // OrderItem
-export const orderItemZodSchema = orderItemInputZodSchema.safeExtend(baseResponseSchema.shape);
+export const orderItemZodSchema = z.object({
+  ...baseResponseSchema.shape,
+  ...orderItemInputZodSchema.shape,
+  orderId: z.string(),
+  priceAtPurchase: z.number().positive(),
+});
 export type OrderItemType = z.infer<typeof orderItemZodSchema>;

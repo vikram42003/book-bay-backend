@@ -1,4 +1,4 @@
-import { IUser } from "../models/User";
+import { User, IUser } from "../models/User";
 import { Referral, IReferral } from "../models/Referral";
 
 const createReferral = async (referrer: IUser, referredUser: IUser): Promise<IReferral> => {

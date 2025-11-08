@@ -1,7 +1,9 @@
 import { Router, IRouter, Request, Response } from "express";
+import { IUser } from "../models/User";
+import orderService from "../services/orderService";
 
 interface AuthenticatedRequest extends Request {
-  user?: { id: string; username: string };
+  user?: IUser;
 }
 
 const orderRouter: IRouter = Router();
@@ -11,8 +13,10 @@ const orderRouter: IRouter = Router();
 // Takes - { items[]: [orderItems], discount?: number, total: number }
 orderRouter.post("/", async (req: AuthenticatedRequest, res: Response) => {
   try {
-    const { items, discount, total } = req.body;
-    if (!items || items.length === 0 || !total) {
+    // We just extract the discount and total here, we wont be using it for anything, because dont trust user input
+    // It would still be a good idea to send it to the backend despite us not using it, incase we have to deal with live price change, or other inconsistencies
+    const { items, DANGEROUSdiscount, DANGEROUStotal } = req.body;
+    if (!items || items.length === 0 || !DANGEROUStotal) {
       return res.status(400).json({ error: "Items and total are required" });
     }
     
@@ -22,10 +26,13 @@ orderRouter.post("/", async (req: AuthenticatedRequest, res: Response) => {
     }
     const userId = req.user.id;
 
-    const order = await orderService.createOrder(userId, items, discount, total);
+    // Create the order
+    const orderAndItems = await orderService.createOrder(userId, items);
+    if (!orderAndItems || !orderAndItems.order || !orderAndItems.orderItems) {
+      throw new Error("Order creation failed");
+    }
 
-
-
+    // If this user
 
 
 

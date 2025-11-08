@@ -1,14 +1,19 @@
 import bcrypt from "bcrypt";
 import { User, IUser } from "../models/User";
 
-const getUserByReferralCode = async (referralCode: string): Promise<IUser | null> => {
-  const user = await User.findOne({ referralCode });
+const getUserById = async (id: string): Promise<IUser | null> => {
+  const user = await User.findById(id);
   return user;
 };
 
 const getAllUsers = async (): Promise<IUser[]> => {
   const users = await User.find({});
   return users;
+};
+
+const getUserByReferralCode = async (referralCode: string): Promise<IUser | null> => {
+  const user = await User.findOne({ referralCode });
+  return user;
 };
 
 const createUser = async (username: string, password: string, referredByUser: IUser | null): Promise<IUser> => {
@@ -45,6 +50,7 @@ const deleteUser = async (id: string): Promise<IUser | null> => {
 };
 
 const userService = {
+  getUserById,
   getUserByReferralCode,
   getAllUsers,
   createUser,
