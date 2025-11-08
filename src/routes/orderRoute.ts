@@ -12,13 +12,19 @@ const orderRouter: IRouter = Router();
 // GET /api/orders - get current users all orders
 // We need to be authenticated here - extractUserMiddleware will ensure it
 orderRouter.get("/orders", async (req: AuthenticatedRequest, res: Response) => {
-  if (!req.user) {
-    return res.status(401).json({ error: "Unauthorized", message: "Please try logging in again" });
-  }
-  const user = req.user;
+  try {
+    if (!req.user) {
+      return res.status(401).json({ error: "Unauthorized", message: "Please try logging in again" });
+    }
+    const user = req.user;
 
-  const allOrders = await orderService.getAllOrders(user.id);
-  res.json(allOrders);
+    const allOrders = await orderService.getAllOrders(user.id);
+    res.json(allOrders);
+  } catch (error) {
+    const str = "Encountered an error While fetching orders";
+    console.error(str, "\n", error);
+    return res.status(500).json({ error: "Internal Server Error", message: str });
+  }
 });
 
 // POST /api/order - to place an order

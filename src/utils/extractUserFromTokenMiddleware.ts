@@ -4,7 +4,7 @@ import userService from "../services/userService";
 import { IUser } from "../models/User";
 
 interface AuthenticatedRequest extends Request {
-  user: IUser;
+  user?: IUser;
 }
 
 const extractUserFromTokenMiddleware = async (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
