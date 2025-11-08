@@ -14,7 +14,17 @@ const referralSchema = new Schema<IReferral>(
     referredUserId: { type: Schema.Types.ObjectId, ref: "User", required: true, unique: true },
     status: { type: String, enum: ["PENDING", "CONVERTED"], default: "PENDING" },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+    toJSON: {
+      virtuals: true,
+      versionKey: false,
+      transform: (doc, ret) => {
+        ret.id = (ret._id as Types.ObjectId).toString();
+        delete ret._id;
+      },
+    },
+  }
 );
 
 // Composite unique constraint

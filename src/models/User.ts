@@ -18,7 +18,17 @@ const userSchema = new Schema<IUser>(
     credits: { type: Number, default: 0 },
     referrerId: { type: Schema.Types.ObjectId, ref: "User" },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+    toJSON: {
+      virtuals: true,
+      versionKey: false,
+      transform: (doc, ret) => {
+        ret.id = (ret._id as Types.ObjectId).toString();
+        delete ret._id;
+      },
+    },
+  }
 );
 
 export const User = model<IUser>("User", userSchema);
