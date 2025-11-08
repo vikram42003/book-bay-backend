@@ -60,3 +60,16 @@ export type OrderInput = z.infer<typeof orderInputZodSchema>;
 // Order
 export const orderZodSchema = orderInputZodSchema.safeExtend(baseResponseSchema);
 export type Order = z.infer<typeof orderZodSchema>;
+
+// OrderItemInput
+export const orderItemInputZodSchema = z.object({
+  orderId: z.string(),
+  bookId: z.string(),
+  quantity: z.number().int().positive(),
+  priceAtPurchase: z.number().positive(),
+});
+export type OrderItemInput = z.infer<typeof orderItemZodSchema>;
+
+// OrderItem
+export const orderItemZodSchema = orderItemInputZodSchema.safeExtend(baseResponseSchema);
+export type OrderItem = z.infer<typeof orderItemZodSchema>;
