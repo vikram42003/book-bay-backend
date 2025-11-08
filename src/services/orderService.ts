@@ -3,6 +3,16 @@ import { OrderItem, IOrderItem } from "../models/OrderItem";
 import { Book, IBook } from "../models/Book";
 import { OrderItemInput } from "../types/types";
 
+const getAllOrders = async (userId: string): Promise<IOrder[]> => {
+  const orders = await Order.find({ userId })
+    .populate({
+      path: "orderItems",
+      populate: { path: "bookId" },
+    })
+    .exec();
+  return orders;
+};
+
 const createOrder = async (
   userId: string,
   items: OrderItemInput[]
@@ -32,10 +42,10 @@ const createOrder = async (
     items.map(async (item) => {
       const book = booksMap.get(item.bookId);
       return await OrderItem.create({
-        orderId: order.id,
+        orderId: order._id,
         bookId: item.bookId,
         quantity: item.quantity,
-        priceAtPurchase: book!.price,
+        priceAtPurchase: book?.price,
       });
     })
   );
@@ -47,6 +57,7 @@ const createOrder = async (
 };
 
 export const orderService = {
+  getAllOrders,
   createOrder,
 };
 

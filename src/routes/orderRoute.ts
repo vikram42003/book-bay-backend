@@ -9,6 +9,18 @@ interface AuthenticatedRequest extends Request {
 
 const orderRouter: IRouter = Router();
 
+// GET /api/orders - get current users all orders
+// We need to be authenticated here - extractUserMiddleware will ensure it
+orderRouter.get("/orders", async (req: AuthenticatedRequest, res: Response) => {
+  if (!req.user) {
+    return res.status(401).json({ error: "Unauthorized", message: "Please try logging in again" });
+  }
+  const user = req.user;
+
+  const allOrders = await orderService.getAllOrders(user.id);
+  res.json(allOrders);
+});
+
 // POST /api/order - to place an order
 // We need to be authenticated here - extractUserMiddleware will ensure it
 // Takes - { items[]: [orderItems], discount?: number, total: number }
@@ -16,12 +28,11 @@ orderRouter.post("/", async (req: AuthenticatedRequest, res: Response) => {
   try {
     // We just extract the discount and total here, we wont be using it for anything, because dont trust user input
     // It would still be a good idea to send it to the backend despite us not using it, incase we have to deal with live price change, or other inconsistencies
-    const { items, DANGEROUSdiscount, DANGEROUStotal } = req.body;
-    if (!items || items.length === 0 || !DANGEROUStotal) {
+    const { items, total } = req.body;
+    if (!items || items.length === 0 || !total) {
       return res.status(400).json({ error: "Items and total are required" });
     }
 
-    // Extra check to ensue we're authenticated
     if (!req.user) {
       return res.status(401).json({ error: "Unauthorized", message: "Please try logging in again" });
     }

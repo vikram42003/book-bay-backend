@@ -49,18 +49,6 @@ export type BookInput = z.infer<typeof bookInputZodSchema>;
 export const bookZodSchema = bookInputZodSchema.safeExtend(baseResponseSchema.shape);
 export type BookType = z.infer<typeof bookZodSchema>;
 
-// OrderInput
-export const orderInputZodSchema = z.object({
-  userId: z.string(),
-  total: z.number().positive(),
-  discount: z.number().default(0),
-});
-export type OrderInput = z.infer<typeof orderInputZodSchema>;
-
-// Order
-export const orderZodSchema = orderInputZodSchema.safeExtend(baseResponseSchema.shape);
-export type OrderType = z.infer<typeof orderZodSchema>;
-
 // OrderItemInput
 export const orderItemInputZodSchema = z.object({
   bookId: z.string(),
@@ -76,3 +64,19 @@ export const orderItemZodSchema = z.object({
   priceAtPurchase: z.number().positive(),
 });
 export type OrderItemType = z.infer<typeof orderItemZodSchema>;
+
+// OrderInput
+export const orderInputZodSchema = z.object({
+  userId: z.string(),
+  total: z.number().positive(),
+  discount: z.number().default(0),
+});
+export type OrderInput = z.infer<typeof orderInputZodSchema>;
+
+// Order
+export const orderZodSchema = orderInputZodSchema.safeExtend({
+  ...baseResponseSchema.shape,
+  // For virtual ref field (equivalent to joins query)
+  orderItems: z.array(orderItemZodSchema).optional(),
+});
+export type OrderType = z.infer<typeof orderZodSchema>;

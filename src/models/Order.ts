@@ -1,4 +1,5 @@
 import { Schema, model, Document, Types } from "mongoose";
+import { IOrderItem } from "./OrderItem";
 
 export interface IOrder extends Document {
   userId: Types.ObjectId;
@@ -6,6 +7,7 @@ export interface IOrder extends Document {
   discount: number;
   createdAt: Date;
   updatedAt: Date;
+  orderItems?: Types.DocumentArray<IOrderItem>;
 }
 
 const orderSchema = new Schema<IOrder>(
@@ -26,5 +28,13 @@ const orderSchema = new Schema<IOrder>(
     },
   }
 );
+
+// virtual populate for orderItems (literally basically a joins query)
+// doc ref - https://mongoosejs.com/docs/tutorials/virtuals.html#populate
+orderSchema.virtual("orderItems", {
+  ref: "OrderItem",
+  localField: "_id",
+  foreignField: "orderId",
+});
 
 export const Order = model<IOrder>("Order", orderSchema);
