@@ -6,6 +6,11 @@ const getUserByReferralCode = async (referralCode: string): Promise<IUser | null
   return user;
 };
 
+const getAllUsers = async (): Promise<IUser[]> => {
+  const users = await User.find({});
+  return users;
+};
+
 const createUser = async (username: string, password: string, referredByUser: IUser | null): Promise<IUser> => {
   const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -23,6 +28,7 @@ const createUser = async (username: string, password: string, referredByUser: IU
 
 const userService = {
   getUserByReferralCode,
+  getAllUsers,
   createUser,
 };
 

@@ -1,5 +1,4 @@
-import { Router, IRouter } from "express";
-import { Request, Response } from "express";
+import { Router, IRouter, Request, Response } from "express";
 import bookService from "../services/bookService";
 
 const bookRouter: IRouter = Router();
