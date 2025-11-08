@@ -8,8 +8,14 @@ const generateToken = (id: string, username: string): string => {
   return token;
 };
 
+const verifyToken = (token: string): { id: string; username: string } | null => {
+  const decoded = jwt.verify(token, ENV.JWT_SECRET) as { id: string; username: string };
+  return decoded;
+};
+
 const authService = {
   generateToken,
+  verifyToken,
 };
 
 export default authService;
