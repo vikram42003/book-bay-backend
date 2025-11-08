@@ -1,9 +1,15 @@
 import express, { Express } from "express";
+import cors from "cors";
 
 import logger from "./utils/logger.js";
 
 const app: Express = express();
 
+// Middlewares
+// Cors has * as allow rules since this is only an assignment app
+app.use(cors());
+
+app.use(express.json());
 app.use(logger);
 
 // Unknown route endpoint
