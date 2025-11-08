@@ -20,7 +20,7 @@ export const userInputZodSchema = z.object({
 export type UserInput = z.infer<typeof userInputZodSchema>;
 
 // User
-export const userZodSchema = userInputZodSchema.safeExtend(baseResponseSchema);
+export const userZodSchema = userInputZodSchema.safeExtend(baseResponseSchema.shape);
 export type User = z.infer<typeof userZodSchema>;
 
 // ReferralInput
@@ -32,7 +32,7 @@ export const referralInputZodSchema = z.object({
 export type ReferralInput = z.infer<typeof referralInputZodSchema>;
 
 // Referral
-export const referralZodSchema = referralInputZodSchema.safeExtend(baseResponseSchema);
+export const referralZodSchema = referralInputZodSchema.safeExtend(baseResponseSchema.shape);
 export type Referral = z.infer<typeof referralZodSchema>;
 
 // BookInput
@@ -44,7 +44,7 @@ export const bookInputZodSchema = z.object({
 export type BookInput = z.infer<typeof bookInputZodSchema>;
 
 // Book
-export const bookZodSchema = bookInputZodSchema.safeExtend(baseResponseSchema);
+export const bookZodSchema = bookInputZodSchema.safeExtend(baseResponseSchema.shape);
 export type Book = z.infer<typeof bookZodSchema>;
 
 // OrderInput
@@ -56,7 +56,7 @@ export const orderInputZodSchema = z.object({
 export type OrderInput = z.infer<typeof orderInputZodSchema>;
 
 // Order
-export const orderZodSchema = orderInputZodSchema.safeExtend(baseResponseSchema);
+export const orderZodSchema = orderInputZodSchema.safeExtend(baseResponseSchema.shape);
 export type Order = z.infer<typeof orderZodSchema>;
 
 // OrderItemInput
@@ -69,5 +69,5 @@ export const orderItemInputZodSchema = z.object({
 export type OrderItemInput = z.infer<typeof orderItemZodSchema>;
 
 // OrderItem
-export const orderItemZodSchema = orderItemInputZodSchema.safeExtend(baseResponseSchema);
+export const orderItemZodSchema = orderItemInputZodSchema.safeExtend(baseResponseSchema.shape);
 export type OrderItem = z.infer<typeof orderItemZodSchema>;
