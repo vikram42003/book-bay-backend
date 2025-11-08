@@ -53,7 +53,7 @@ userRouter.post("/register", async (req: Request, res: Response) => {
     const token = authService.generateToken(newUser.id, newUser.username);
     res.status(201).json({ token: token, user: newUser });
   } catch (error) {
-    // EDGE CASE - if the username already exists then mongoose will be the one to throw the error 
+    // EDGE CASE - if the username already exists then mongoose will be the one to throw the error
     if (error instanceof mongo.MongoServerError && error.code === 11000) {
       return res.status(409).json({ message: "Username already exists." });
     }
@@ -64,7 +64,29 @@ userRouter.post("/register", async (req: Request, res: Response) => {
   }
 });
 
-// POST /api/users/login
+// POST /api/users/login - to login
+// Takes - { username: string, password: string }
+userRouter.post("/login", async (req: Request, res: Response) => {
+  try {
+    const { username, password } = req.body;
+
+    if (!username || !password) {
+      return res.status(400).json({ error: "Username and password are required" });
+    }
+
+    const user = await userService.loginUser(username, password);
+    if (!user) {
+      return res.status(401).json({ error: "Invalid username or password" });
+    }
+
+    const token = authService.generateToken(user.id, user.username);
+    res.status(200).json({ token: token, user: user });
+  } catch (error) {
+    const str = "Encountered an error While logging in";
+    console.error(str, "\n", error);
+    res.status(500).json({ error: "Internal Server Error", message: str });
+  }
+});
 
 // <DEV ONLY> - I created it for testing, Frontend should not have access to this
 // DELETE /api/users/:id - deleting a user

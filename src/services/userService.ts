@@ -26,6 +26,20 @@ const createUser = async (username: string, password: string, referredByUser: IU
   return newUser;
 };
 
+const loginUser = async (username: string, password: string): Promise<IUser | null> => {
+  const user = await User.findOne({ username });
+  if (!user) {
+    return null;
+  }
+
+  const isThePasswordCorrect = await bcrypt.compare(password, user.password);
+  if (!isThePasswordCorrect) {
+    return null;
+  } else {
+    return user;
+  }
+};
+
 const deleteUser = async (id: string): Promise<IUser | null> => {
   return await User.findByIdAndDelete(id);
 };
@@ -35,6 +49,7 @@ const userService = {
   getAllUsers,
   createUser,
   deleteUser,
+  loginUser,
 };
 
 export default userService;
