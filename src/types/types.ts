@@ -1,7 +1,5 @@
 import { z } from "zod";
 
-// TODO: CHANGE ALL User to UserInput and UserResponse to just User
-
 // Base response
 // This type is for craeting database response variants of the below types
 const baseResponseSchema = z.object({
@@ -11,43 +9,43 @@ const baseResponseSchema = z.object({
 });
 export type BaseResponse = z.infer<typeof baseResponseSchema>;
 
-// User
-export const userZodSchema = z.object({
+// UserInput
+export const userInputZodSchema = z.object({
   username: z.string(),
   password: z.string().min(8),
   referralCode: z.string(),
   credits: z.number().default(0),
   referrerId: z.string().optional(),
 });
+export type UserInput = z.infer<typeof userInputZodSchema>;
+
+// User
+export const userZodSchema = userInputZodSchema.safeExtend(baseResponseSchema);
 export type User = z.infer<typeof userZodSchema>;
 
-// UserResponse
-export const userResponseZodSchema = userZodSchema.safeExtend(baseResponseSchema);
-export type UserResponse = z.infer<typeof userResponseZodSchema>;
-
-// Referral
-export const referralZodSchema = z.object({
+// ReferralInput
+export const referralInputZodSchema = z.object({
   referrerId: z.string(),
   referredUserId: z.string(),
   status: z.enum(["PENDING", "CONVERTED"]).default("PENDING"),
 });
-export type ReferralInput = z.infer<typeof referralZodSchema>;
+export type ReferralInput = z.infer<typeof referralInputZodSchema>;
 
-// ReferralResponse
-export const referralResponseZodSchema = referralZodSchema.safeExtend(baseResponseSchema);
-export type ReferralResponse = z.infer<typeof referralResponseZodSchema>;
+// Referral
+export const referralZodSchema = referralInputZodSchema.safeExtend(baseResponseSchema);
+export type Referral = z.infer<typeof referralZodSchema>;
 
-// Book
-export const bookZodSchema = z.object({
+// BookInput
+export const bookInputZodSchema = z.object({
   title: z.string(),
   image: z.string(),
   price: z.number().positive(),
 });
-export type BookInput = z.infer<typeof bookZodSchema>;
+export type BookInput = z.infer<typeof bookInputZodSchema>;
 
-// BookResponse
-export const bookResponseZodSchema = bookZodSchema.safeExtend(baseResponseSchema);
-export type BookResponse = z.infer<typeof bookResponseZodSchema>;
+// Book
+export const bookZodSchema = bookInputZodSchema.safeExtend(baseResponseSchema);
+export type Book = z.infer<typeof bookZodSchema>;
 
 // OrderInput
 export const orderInputZodSchema = z.object({
