@@ -1,5 +1,7 @@
 import { z } from "zod";
 
+// TODO: CHANGE ALL User to UserInput and UserResponse to just User
+
 // Base response
 // This type is for craeting database response variants of the below types
 const baseResponseSchema = z.object({
@@ -47,4 +49,14 @@ export type BookInput = z.infer<typeof bookZodSchema>;
 export const bookResponseZodSchema = bookZodSchema.safeExtend(baseResponseSchema);
 export type BookResponse = z.infer<typeof bookResponseZodSchema>;
 
+// OrderInput
+export const orderInputZodSchema = z.object({
+  userId: z.string(),
+  total: z.number().positive(),
+  discount: z.number().default(0),
+});
+export type OrderInput = z.infer<typeof orderInputZodSchema>;
 
+// Order
+export const orderZodSchema = orderInputZodSchema.safeExtend(baseResponseSchema);
+export type Order = z.infer<typeof orderZodSchema>;
