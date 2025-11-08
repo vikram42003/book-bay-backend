@@ -1,6 +1,7 @@
 import { Router, IRouter, Request, Response } from "express";
 import { IUser } from "../models/User";
 import orderService from "../services/orderService";
+import referralServie from "../services/referralService";
 
 interface AuthenticatedRequest extends Request {
   user?: IUser;
@@ -19,24 +20,26 @@ orderRouter.post("/", async (req: AuthenticatedRequest, res: Response) => {
     if (!items || items.length === 0 || !DANGEROUStotal) {
       return res.status(400).json({ error: "Items and total are required" });
     }
-    
+
     // Extra check to ensue we're authenticated
     if (!req.user) {
       return res.status(401).json({ error: "Unauthorized", message: "Please try logging in again" });
     }
-    const userId = req.user.id;
+    const user = req.user;
 
     // Create the order
-    const orderAndItems = await orderService.createOrder(userId, items);
+    const orderAndItems = await orderService.createOrder(user.id, items);
     if (!orderAndItems || !orderAndItems.order || !orderAndItems.orderItems) {
       throw new Error("Order creation failed");
     }
 
-    // If this user
+    // If this user hasnt claimed their referral credits then do the crediting
+    let referral;
+    if (user.referralStatus && user.referralStatus === "PENDING") {
+      referral = await referralServie.claimReferral(user);
+    }
 
-
-
-
+    res.status(201).json({ order: orderAndItems.order, orderItems: orderAndItems.orderItems, referral });
   } catch (error) {
     const str = "Encountered an error While creating the order";
     console.error(str, "\n", error);

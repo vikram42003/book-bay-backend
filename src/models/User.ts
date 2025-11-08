@@ -6,7 +6,7 @@ export interface IUser extends Document {
   referralCode: string;
   credits: number;
   referrerId?: Types.ObjectId;
-  referralStatus?: "PENDING" | "CLAIMED";
+  referralStatus?: "PENDING" | "CONVERTED";
   createdAt: Date;
   updatedAt: Date;
 }
@@ -16,7 +16,7 @@ const userSchema = new Schema<IUser>(
     username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     referralCode: { type: String, required: true, unique: true },
-    referralStatus: { type: String, enum: ["PENDING", "CLAIMED"], default: "PENDING" },
+    referralStatus: { type: String, enum: ["PENDING", "CONVERTED"], default: "PENDING" },
     credits: { type: Number, default: 0 },
     referrerId: { type: Schema.Types.ObjectId, ref: "User" },
   },

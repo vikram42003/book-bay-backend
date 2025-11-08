@@ -14,7 +14,7 @@ export const userInputZodSchema = z.object({
   username: z.string(),
   password: z.string().min(8),
   referralCode: z.string(),
-  referralStatus: z.enum(["PENDING", "CLAIMED"]).default("PENDING"),
+  referralStatus: z.enum(["PENDING", "CONVERTED"]).default("PENDING"),
   credits: z.number().default(0),
   referrerId: z.string().optional(),
 });
