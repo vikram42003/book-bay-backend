@@ -26,10 +26,15 @@ const createUser = async (username: string, password: string, referredByUser: IU
   return newUser;
 };
 
+const deleteUser = async (id: string): Promise<IUser | null> => {
+  return await User.findByIdAndDelete(id);
+};
+
 const userService = {
   getUserByReferralCode,
   getAllUsers,
   createUser,
+  deleteUser,
 };
 
 export default userService;

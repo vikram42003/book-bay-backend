@@ -1,6 +1,7 @@
 const PORT: string | undefined = process.env.PORT ?? "3003";
 const MONGODB_URL: string | undefined = process.env.MONGODB_URL;
 const JWT_SECRET: string | undefined = process.env.JWT_SECRET;
+const NODE_ENV: string | undefined = process.env.NODE_ENV?.toLowerCase() ?? "production";
 
 if (!MONGODB_URL) {
   console.error("MONGODB_URL is not defined");
@@ -16,6 +17,7 @@ const ENV = {
   MONGODB_URL,
   PORT,
   JWT_SECRET,
+  NODE_ENV,
 };
 
 export default ENV;

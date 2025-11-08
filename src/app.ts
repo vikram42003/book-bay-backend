@@ -4,6 +4,7 @@ import cors from "cors";
 import logger from "./utils/logger.js";
 
 import bookRouter from "./routes/bookRoute.js";
+import userRouter from "./routes/userRouter.js";
 
 const app: Express = express();
 
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use(logger);
 
 app.use("/api/books", bookRouter);
+app.use("/api/users", userRouter);
 
 // Unknown route endpoint
 app.use((req, res) => {
