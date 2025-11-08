@@ -37,7 +37,7 @@ export type ReferralResponse = z.infer<typeof referralResponseZodSchema>;
 
 // Book
 export const bookZodSchema = z.object({
-  title: z.string().min(1).max(200),
+  title: z.string(),
   image: z.string(),
   price: z.number().positive(),
 });
