@@ -6,6 +6,8 @@ export interface IUser extends Document {
   referralCode: string;
   credits: number;
   referrerId?: Types.ObjectId;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 const userSchema = new Schema<IUser>(
