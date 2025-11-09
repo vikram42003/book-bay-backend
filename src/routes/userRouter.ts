@@ -4,8 +4,28 @@ import userService from "../services/userService";
 import referralServie from "../services/referralService";
 import authService from "../services/authService";
 import ENV from "../utils/env";
+import extractUserFromTokenMiddleware from "../utils/extractUserFromTokenMiddleware";
+import { IUser } from "../models/User";
 
 const userRouter: IRouter = Router();
+
+interface AuthenticatedRequest extends Request {
+  user?: IUser;
+}
+
+// GET /api/users/me - get the current user's details
+userRouter.get("/me", extractUserFromTokenMiddleware, async (req: AuthenticatedRequest, res: Response) => {
+  try {
+    if (!req.user) {
+      return res.status(401).json({ error: "Unauthorized", message: "Please try logging in again" });
+    }
+    res.status(200).json(req.user);
+  } catch (error) {
+    const str = "Encountered an error While fetching users";
+    console.error(str, "\n", error);
+    res.status(500).json({ error: "Internal Server Error", message: str });
+  }
+});
 
 // GET /api/users - get all users
 userRouter.get("/", async (req: Request, res: Response) => {
