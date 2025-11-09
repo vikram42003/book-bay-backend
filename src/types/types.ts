@@ -54,7 +54,7 @@ export const orderItemInputZodSchema = z.object({
   bookId: z.string(),
   quantity: z.number().int().positive(),
 });
-export type OrderItemInput = z.infer<typeof orderItemZodSchema>;
+export type OrderItemInput = z.infer<typeof orderItemInputZodSchema>;
 
 // OrderItem
 export const orderItemZodSchema = z.object({

@@ -7,6 +7,7 @@ import extractUserFromTokenMiddleware from "./utils/extractUserFromTokenMiddlewa
 import bookRouter from "./routes/bookRoute.js";
 import userRouter from "./routes/userRouter.js";
 import orderRouter from "./routes/orderRoute.js";
+import referralRouter from "./routes/referralRouter.js";
 
 const app: Express = express();
 
@@ -14,12 +15,13 @@ const app: Express = express();
 // Cors has * as allow rules since this is only an assignment app
 app.use(cors());
 app.use(express.json());
-app.use(logger);  
+app.use(logger);
 
 // Routers
 app.use("/api/books", bookRouter);
 app.use("/api/users", userRouter);
 app.use("/api/orders", extractUserFromTokenMiddleware, orderRouter);
+app.use("/api/referrals", referralRouter);
 
 // Unknown route endpoint
 app.use((req, res) => {

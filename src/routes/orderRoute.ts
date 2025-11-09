@@ -11,7 +11,7 @@ const orderRouter: IRouter = Router();
 
 // GET /api/orders - get current users all orders
 // We need to be authenticated here - extractUserMiddleware will ensure it
-orderRouter.get("/orders", async (req: AuthenticatedRequest, res: Response) => {
+orderRouter.get("/", async (req: AuthenticatedRequest, res: Response) => {
   try {
     if (!req.user) {
       return res.status(401).json({ error: "Unauthorized", message: "Please try logging in again" });

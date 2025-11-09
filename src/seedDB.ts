@@ -17,7 +17,7 @@ async function seedBooks() {
       title: item.volumeInfo.title,
       author: item.volumeInfo.authors?.[0] || "Unknown",
       image: item.volumeInfo.imageLinks?.thumbnail || "https://picsum.photos/200",
-      price: Math.floor(Math.random() * 10) * 100,
+      price: Math.floor(Math.random() * 10) * 100 + 100,
     }));
 
     await Book.deleteMany({});

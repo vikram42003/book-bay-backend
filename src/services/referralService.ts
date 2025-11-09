@@ -24,9 +24,14 @@ const claimReferral = async (user: IUser): Promise<IReferral | null> => {
   return newReferral;
 };
 
+const getAllReferralsByReferrerId = async (referrerId: string): Promise<IReferral[]> => {
+  return await Referral.find({ referrerId });
+};
+
 const referralServie = {
   createReferral,
   claimReferral,
+  getAllReferralsByReferrerId,
 };
 
 export default referralServie;
