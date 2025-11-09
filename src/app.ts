@@ -14,7 +14,7 @@ const app: Express = express();
 // Cors has * as allow rules since this is only an assignment app
 app.use(cors());
 app.use(express.json());
-app.use(logger);
+app.use(logger);  
 
 // Routers
 app.use("/api/books", bookRouter);
