@@ -21,7 +21,7 @@ export const userInputZodSchema = z.object({
 export type UserInput = z.infer<typeof userInputZodSchema>;
 
 // User
-export const userZodSchema = userInputZodSchema.safeExtend(baseResponseSchema.shape);
+export const userZodSchema = userInputZodSchema.omit({ password: true }).safeExtend(baseResponseSchema.shape);
 export type UserType = z.infer<typeof userZodSchema>;
 
 // ReferralInput

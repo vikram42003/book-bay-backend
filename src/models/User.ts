@@ -14,7 +14,7 @@ export interface IUser extends Document {
 const userSchema = new Schema<IUser>(
   {
     username: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
+    password: { type: String, required: true, select: false },
     referralCode: { type: String, required: true, unique: true },
     referralStatus: { type: String, enum: ["PENDING", "CONVERTED"], default: "PENDING" },
     credits: { type: Number, default: 0 },
@@ -28,6 +28,9 @@ const userSchema = new Schema<IUser>(
       transform: (doc, ret) => {
         ret.id = (ret._id as Types.ObjectId).toString();
         delete ret._id;
+        // Delete password from the user at the json transformation level, so it will never 
+        // be on the user for any data that leaves the server
+        delete (ret as { password?: string }).password;
       },
     },
   }
