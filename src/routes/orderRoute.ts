@@ -56,7 +56,15 @@ orderRouter.post("/", async (req: AuthenticatedRequest, res: Response) => {
       referral = await referralServie.claimReferral(user);
     }
 
-    res.status(201).json({ order: orderAndItems.order, orderItems: orderAndItems.orderItems, referral });
+    const orderToReturn = {
+      ...orderAndItems.order.toJSON(),
+      orderItems: orderAndItems.orderItems,
+    };
+
+    res.status(201).json({
+      order: orderToReturn,
+      referral,
+    });
   } catch (error) {
     const str = "Encountered an error While creating the order";
     console.error(str, "\n", error);
