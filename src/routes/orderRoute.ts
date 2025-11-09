@@ -51,8 +51,10 @@ orderRouter.post("/", async (req: AuthenticatedRequest, res: Response) => {
     }
 
     // If this user hasnt claimed their referral credits then do the crediting
+    console.log("USER\n", user);
     let referral;
     if (user.referralStatus && user.referralStatus === "PENDING") {
+      console.log("STARTING REFERRAL");
       referral = await referralServie.claimReferral(user);
     }
 

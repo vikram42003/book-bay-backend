@@ -46,7 +46,7 @@ userRouter.post("/register", async (req: Request, res: Response) => {
 
     // If referral code was correct, then create a referral item, so that we can do the credit both users logic
     if (referredByUser) {
-      await referralServie.createReferral(newUser, referredByUser);
+      await referralServie.createReferral(referredByUser, newUser);
     }
 
     // create the jwt token and return
@@ -55,7 +55,13 @@ userRouter.post("/register", async (req: Request, res: Response) => {
   } catch (error) {
     // EDGE CASE - if the username already exists then mongoose will be the one to throw the error
     if (error instanceof mongo.MongoServerError && error.code === 11000) {
-      return res.status(409).json({ message: "Username already exists." });
+      const duplicateField = Object.keys(error.keyValue)[0] as string;
+      const duplicateValue = error.keyValue[duplicateField];
+
+      return res.status(409).json({
+        error: `Duplicate ${duplicateField}`,
+        message: `${duplicateField} "${duplicateValue}" already exists.`,
+      });
     }
 
     const str = "Encountered an error While creating the user";
