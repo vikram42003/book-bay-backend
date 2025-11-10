@@ -6,6 +6,10 @@ This repository contains the backend service for the Book Bay application, a dig
 
 The system allows users to register, receive a unique referral code, and earn credits when their referred users make their first purchase. It's built with a focus on clean architecture, scalability, and data integrity.
 
+**Live App url (Vercel)** - https://book-bay-eight.vercel.app/ \
+**Backend url (Render)** - https://book-bay-backend.onrender.com/ \
+**Frontend repository url** - https://github.com/vikram42003/book-bay
+
 **This repo is mainly for detailing the backend and the API routes, please check out the frontend repo here for a complete overview of the project, including Entity Relationship and UML diagrams for backend and the app flow, complete tech stack and more**
 
 ---
@@ -45,7 +49,7 @@ eg. `yarn install` => `npm install`
 ### **1. Clone the Repository**
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/vikram42003/book-bay-backend
 cd book-bay-backend
 ```
 
