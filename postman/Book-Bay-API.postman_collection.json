@@ -1,0 +1,1101 @@
+{
+	"info": {
+		"_postman_id": "947eef09-22a3-42c3-b195-ab7609e7f1ab",
+		"name": "Book-Bay API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36712692"
+	},
+	"item": [
+		{
+			"name": "Books",
+			"item": [
+				{
+					"name": "Get all books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/books",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"books"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "EXAMPLE Get all books",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3003/api/books",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3003",
+									"path": [
+										"api",
+										"books"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express",
+									"type": "text"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "3310",
+									"type": "text"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"cee-3NoUelp78J5d+7Ow5hUpgq3Avvg\"",
+									"type": "text"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 Nov 2025 15:35:58 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"type": "text"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"title\": \"Science Fiction and Fantasy Literature\",\n        \"author\": \"R. Reginald\",\n        \"image\": \"http://books.google.com/books/content?id=P8zW2AH6150C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api\",\n        \"price\": 700,\n        \"createdAt\": \"2025-11-08T11:42:24.559Z\",\n        \"updatedAt\": \"2025-11-08T11:42:24.559Z\",\n        \"id\": \"690f2ca0ccf7cec290a990d3\"\n    },\n    {\n        \"title\": \"Library of Congress Subject Headings\",\n        \"author\": \"Library of Congress\",\n        \"image\": \"http://books.google.com/books/content?id=jzEnCBJF-wwC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api\",\n        \"price\": 300,\n        \"createdAt\": \"2025-11-08T11:42:24.560Z\",\n        \"updatedAt\": \"2025-11-08T11:42:24.560Z\",\n        \"id\": \"690f2ca0ccf7cec290a990d4\"\n    },\n    {\n        \"title\": \"Library of Congress Subject Headings\",\n        \"author\": \"Library of Congress. Cataloging Policy and Support Office\",\n        \"image\": \"http://books.google.com/books/content?id=pEhkh_9bP9wC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api\",\n        \"price\": 800,\n        \"createdAt\": \"2025-11-08T11:42:24.560Z\",\n        \"updatedAt\": \"2025-11-08T11:42:24.560Z\",\n        \"id\": \"690f2ca0ccf7cec290a990d5\"\n    },\n    {\n        \"title\": \"Mestizos Come Home!\",\n        \"author\": \"Robert Con Davis-Undiano\",\n        \"image\": \"http://books.google.com/books/content?id=fk1jDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api\",\n        \"price\": 100,\n        \"createdAt\": \"2025-11-08T11:42:24.560Z\",\n        \"updatedAt\": \"2025-11-08T11:42:24.560Z\",\n        \"id\": \"690f2ca0ccf7cec290a990d6\"\n    },\n    {\n        \"title\": \"Creating Identity in the Victorian Fictional Autobiography\",\n        \"author\": \"Heidi L. Pennington\",\n        \"image\": \"http://books.google.com/books/content?id=mEBIDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api\",\n        \"price\": 100,\n        \"createdAt\": \"2025-11-08T11:42:24.561Z\",\n        \"updatedAt\": \"2025-11-08T11:42:24.561Z\",\n        \"id\": \"690f2ca0ccf7cec290a990d7\"\n    },\n    {\n        \"title\": \"Telling Lies in Modern American Autobiography\",\n        \"author\": \"Timothy Dow Adams\",\n        \"image\": \"http://books.google.com/books/content?id=p6YBbKOR81sC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api\",\n        \"price\": 0,\n        \"createdAt\": \"2025-11-08T11:42:24.561Z\",\n        \"updatedAt\": \"2025-11-08T11:42:24.561Z\",\n        \"id\": \"690f2ca0ccf7cec290a990d8\"\n    },\n    {\n        \"title\": \"Fictional Space in the Modernist and Post-modernist American Novel\",\n        \"author\": \"Carl Darryl Malmgren\",\n        \"image\": \"http://books.google.com/books/content?id=KXzozWo8N-EC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api\",\n        \"price\": 600,\n        \"createdAt\": \"2025-11-08T11:42:24.561Z\",\n        \"updatedAt\": \"2025-11-08T11:42:24.561Z\",\n        \"id\": \"690f2ca0ccf7cec290a990d9\"\n    },\n    {\n        \"title\": \"Essential Skills - Reading and Writing, Grade 1\",\n        \"author\": \"Teacher Created Resources, Inc\",\n        \"image\": \"http://books.google.com/books/content?id=Gynn-4pUcXYC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api\",\n        \"price\": 200,\n        \"createdAt\": \"2025-11-08T11:42:24.561Z\",\n        \"updatedAt\": \"2025-11-08T11:42:24.561Z\",\n        \"id\": \"690f2ca0ccf7cec290a990da\"\n    },\n    {\n        \"title\": \"Writers' & Artists' Yearbook 2026\",\n        \"author\": \"Bloomsbury Publishing\",\n        \"image\": \"http://books.google.com/books/content?id=_T6HEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api\",\n        \"price\": 100,\n        \"createdAt\": \"2025-11-08T11:42:24.561Z\",\n        \"updatedAt\": \"2025-11-08T11:42:24.561Z\",\n        \"id\": \"690f2ca0ccf7cec290a990db\"\n    },\n    {\n        \"title\": \"Pearson's Magazine\",\n        \"author\": \"Unknown\",\n        \"image\": \"http://books.google.com/books/content?id=IqHQAAAAMAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api\",\n        \"price\": 200,\n        \"createdAt\": \"2025-11-08T11:42:24.561Z\",\n        \"updatedAt\": \"2025-11-08T11:42:24.561Z\",\n        \"id\": \"690f2ca0ccf7cec290a990dc\"\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/users",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "EXAMPLE Get all users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3003/api/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3003",
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "947"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3b3-lvHufoedc0MLp1w1X1qMQ8NxyGg\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Nov 2025 10:00:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"username\": \"testUser\",\n        \"referralCode\": \"testUser4118\",\n        \"credits\": 4,\n        \"createdAt\": \"2025-11-08T17:24:20.268Z\",\n        \"updatedAt\": \"2025-11-09T20:11:29.033Z\",\n        \"referralStatus\": \"CONVERTED\",\n        \"id\": \"690f7cc4fb5030cc54821f2d\"\n    },\n    {\n        \"referralStatus\": \"PENDING\",\n        \"username\": \"testUser2\",\n        \"referralCode\": \"testUser24401\",\n        \"credits\": 0,\n        \"referrerId\": \"690f7cc4fb5030cc54821f2d\",\n        \"createdAt\": \"2025-11-08T18:01:16.534Z\",\n        \"updatedAt\": \"2025-11-08T18:01:16.534Z\",\n        \"id\": \"690f856cb5279ea747d4db8a\"\n    },\n    {\n        \"username\": \"thirdUser\",\n        \"referralCode\": \"thirdUser4353\",\n        \"referralStatus\": \"CONVERTED\",\n        \"credits\": 4,\n        \"referrerId\": \"690f7cc4fb5030cc54821f2d\",\n        \"createdAt\": \"2025-11-09T20:10:08.541Z\",\n        \"updatedAt\": \"2025-11-09T20:29:23.398Z\",\n        \"id\": \"6910f52057422291963a24ec\"\n    },\n    {\n        \"username\": \"fourthUser\",\n        \"referralCode\": \"fourthUser5657\",\n        \"referralStatus\": \"CONVERTED\",\n        \"credits\": 2,\n        \"referrerId\": \"6910f52057422291963a24ec\",\n        \"createdAt\": \"2025-11-09T20:29:05.635Z\",\n        \"updatedAt\": \"2025-11-09T20:29:23.346Z\",\n        \"id\": \"6910f99112fd907030038530\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create new user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"testUser\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/users/register",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "EXAMPLE create a new user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"testUser\",\r\n    \"password\": \"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3003/api/users/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3003",
+									"path": [
+										"api",
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express",
+									"type": "text"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "469",
+									"type": "text"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1d5-1jKlkTgQNKiYaqJzQDlYuOMWyvk\"",
+									"type": "text"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 Nov 2025 17:24:20 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"type": "text"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGY3Y2M0ZmI1MDMwY2M1NDgyMWYyZCIsInVzZXJuYW1lIjoidGVzdFVzZXIiLCJpYXQiOjE3NjI2MjI2NjAsImV4cCI6MTc2MzIyNzQ2MH0.wSu7me1X2yhxLPexuyG8K2zqPRSDvuh8cyBs2pm9OGI\",\n    \"user\": {\n        \"username\": \"testUser\",\n        \"password\": \"$2b$10$UwrxKgQ4GQin9laTGDCi2OWTQXnSayYEfjATihzaQNr2dfFBLXjIa\",\n        \"referralCode\": \"testUser4118\",\n        \"credits\": 0,\n        \"createdAt\": \"2025-11-08T17:24:20.268Z\",\n        \"updatedAt\": \"2025-11-08T17:24:20.268Z\",\n        \"id\": \"690f7cc4fb5030cc54821f2d\"\n    }\n}"
+						},
+						{
+							"name": "EXAMPLE Create new user with referralCode",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"testUser2\",\r\n    \"password\": \"12345678\",\r\n    \"referralCode\": \"testUser4118\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/users/register",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express",
+									"type": "text"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "512",
+									"type": "text"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"200-bFB+u6Jr5OXQfpDbo2jmtA4BSjo\"",
+									"type": "text"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 Nov 2025 18:01:16 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"type": "text"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGY4NTZjYjUyNzllYTc0N2Q0ZGI4YSIsInVzZXJuYW1lIjoidGVzdFVzZXIyIiwiaWF0IjoxNzYyNjI0ODc2LCJleHAiOjE3NjMyMjk2NzZ9.pEP-iHCYXpnUQ_BZtY77U2OJSqEuqCbWAY4r8Q0E2kM\",\n    \"user\": {\n        \"username\": \"testUser2\",\n        \"password\": \"$2b$10$atshVOtos/CrBiHDnSGEMeP.25FdiTCWsoA.UH/qfxD/rqkbLDG6C\",\n        \"referralCode\": \"testUser24401\",\n        \"credits\": 0,\n        \"referrerId\": \"690f7cc4fb5030cc54821f2d\",\n        \"createdAt\": \"2025-11-08T18:01:16.534Z\",\n        \"updatedAt\": \"2025-11-08T18:01:16.534Z\",\n        \"id\": \"690f856cb5279ea747d4db8a\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"testUser\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/users/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "EXAMPLE Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"testUser\",\r\n    \"password\": \"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3003/api/users/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3003",
+									"path": [
+										"api",
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express",
+									"type": "text"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "469",
+									"type": "text"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1d5-M+z5TISMx3mMMUzZia8yPN7vRDY\"",
+									"type": "text"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 Nov 2025 17:59:56 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"type": "text"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGY3Y2M0ZmI1MDMwY2M1NDgyMWYyZCIsInVzZXJuYW1lIjoidGVzdFVzZXIiLCJpYXQiOjE3NjI2MjQ3OTYsImV4cCI6MTc2MzIyOTU5Nn0.QEiDKaBPHAZ4Uh37onqRY5cXVD92sdjKavSsZIdqqlg\",\n    \"user\": {\n        \"username\": \"testUser\",\n        \"password\": \"$2b$10$UwrxKgQ4GQin9laTGDCi2OWTQXnSayYEfjATihzaQNr2dfFBLXjIa\",\n        \"referralCode\": \"testUser4118\",\n        \"credits\": 0,\n        \"createdAt\": \"2025-11-08T17:24:20.268Z\",\n        \"updatedAt\": \"2025-11-08T17:24:20.268Z\",\n        \"id\": \"690f7cc4fb5030cc54821f2d\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get current user's info",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGY3Y2M0ZmI1MDMwY2M1NDgyMWYyZCIsInVzZXJuYW1lIjoidGVzdFVzZXIiLCJpYXQiOjE3NjI3Njg2NDQsImV4cCI6MTc2MzM3MzQ0NH0.aaDEojk0LVBJiqIPvPnwh0-KNRB3cqRxT4lsuq4qYPY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/users/me",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "EXAMPLE Get current user's info",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3003/api/users/me",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3003",
+									"path": [
+										"api",
+										"users",
+										"me"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "204"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"cc-24NZqqcKE/KMF3N9jTny+tv4uug\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Nov 2025 09:58:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"username\": \"testUser\",\n    \"referralCode\": \"testUser4118\",\n    \"credits\": 4,\n    \"createdAt\": \"2025-11-08T17:24:20.268Z\",\n    \"updatedAt\": \"2025-11-09T20:11:29.033Z\",\n    \"referralStatus\": \"CONVERTED\",\n    \"id\": \"690f7cc4fb5030cc54821f2d\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/users/6910f99112fd907030038530",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"6910f99112fd907030038530"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "EXAMPLE Delete user",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3003/api/users/6910f99112fd907030038530",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3003",
+									"path": [
+										"api",
+										"users",
+										"6910f99112fd907030038530"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "248"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f8-2attGQuX5dWBsV2U85xSPWoehRc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Nov 2025 10:01:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"username\": \"fourthUser\",\n    \"referralCode\": \"fourthUser5657\",\n    \"referralStatus\": \"CONVERTED\",\n    \"credits\": 2,\n    \"referrerId\": \"6910f52057422291963a24ec\",\n    \"createdAt\": \"2025-11-09T20:29:05.635Z\",\n    \"updatedAt\": \"2025-11-09T20:29:23.346Z\",\n    \"id\": \"6910f99112fd907030038530\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Purchases",
+			"item": [
+				{
+					"name": "Get all purchases",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGY3Y2M0ZmI1MDMwY2M1NDgyMWYyZCIsInVzZXJuYW1lIjoidGVzdFVzZXIiLCJpYXQiOjE3NjI2MjQ3OTYsImV4cCI6MTc2MzIyOTU5Nn0.QEiDKaBPHAZ4Uh37onqRY5cXVD92sdjKavSsZIdqqlg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/orders",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "EXAMPLE Get all purchases",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3003/api/orders",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3003",
+									"path": [
+										"api",
+										"orders"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express",
+									"type": "text"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1218",
+									"type": "text"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4c2-yw6+f0f9e7N3jzI2ALFMiGca2AU\"",
+									"type": "text"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 09 Nov 2025 17:56:53 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"type": "text"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"userId\": \"690f7cc4fb5030cc54821f2d\",\n        \"total\": 3000,\n        \"discount\": 0,\n        \"createdAt\": \"2025-11-09T17:53:25.774Z\",\n        \"updatedAt\": \"2025-11-09T17:53:25.774Z\",\n        \"orderItems\": [\n            {\n                \"orderId\": \"6910d5150bc6f830d8499e67\",\n                \"bookId\": {\n                    \"title\": \"Science Fiction and Fantasy Literature\",\n                    \"author\": \"R. Reginald\",\n                    \"image\": \"http://books.google.com/books/content?id=P8zW2AH6150C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api\",\n                    \"price\": 300,\n                    \"createdAt\": \"2025-11-09T09:04:01.351Z\",\n                    \"updatedAt\": \"2025-11-09T09:04:01.351Z\",\n                    \"id\": \"691059011ea34870ed41cc5f\"\n                },\n                \"quantity\": 2,\n                \"priceAtPurchase\": 300,\n                \"createdAt\": \"2025-11-09T17:53:25.853Z\",\n                \"updatedAt\": \"2025-11-09T17:53:25.853Z\",\n                \"id\": \"6910d5150bc6f830d8499e69\"\n            },\n            {\n                \"orderId\": \"6910d5150bc6f830d8499e67\",\n                \"bookId\": {\n                    \"title\": \"Library of Congress Subject Headings\",\n                    \"author\": \"Library of Congress\",\n                    \"image\": \"http://books.google.com/books/content?id=jzEnCBJF-wwC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api\",\n                    \"price\": 800,\n                    \"createdAt\": \"2025-11-09T09:04:01.353Z\",\n                    \"updatedAt\": \"2025-11-09T09:04:01.353Z\",\n                    \"id\": \"691059011ea34870ed41cc60\"\n                },\n                \"quantity\": 3,\n                \"priceAtPurchase\": 800,\n                \"createdAt\": \"2025-11-09T17:53:25.854Z\",\n                \"updatedAt\": \"2025-11-09T17:53:25.854Z\",\n                \"id\": \"6910d5150bc6f830d8499e6a\"\n            }\n        ],\n        \"id\": \"6910d5150bc6f830d8499e67\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Make purchase",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGY3Y2M0ZmI1MDMwY2M1NDgyMWYyZCIsInVzZXJuYW1lIjoidGVzdFVzZXIiLCJpYXQiOjE3NjI2MjQ3OTYsImV4cCI6MTc2MzIyOTU5Nn0.QEiDKaBPHAZ4Uh37onqRY5cXVD92sdjKavSsZIdqqlg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"items\": [\r\n        {\r\n            \"bookId\": \"691059011ea34870ed41cc5f\",\r\n            \"quantity\": 2\r\n        },\r\n        {\r\n            \"bookId\": \"691059011ea34870ed41cc60\",\r\n            \"quantity\": 2\r\n        }\r\n    ],\r\n    \"total\": 2200\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/orders",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "EXAMPLE Make purchase",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"items\": [\r\n        {\r\n            \"bookId\": \"691059011ea34870ed41cc5f\",\r\n            \"quantity\": 2\r\n        },\r\n        {\r\n            \"bookId\": \"691059011ea34870ed41cc60\",\r\n            \"quantity\": 2\r\n        }\r\n    ],\r\n    \"total\": 2200\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3003/api/orders",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3003",
+									"path": [
+										"api",
+										"orders"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express",
+									"type": "text"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*",
+									"type": "text"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8",
+									"type": "text"
+								},
+								{
+									"key": "Content-Length",
+									"value": "638",
+									"type": "text"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"27e-re0haRk2QHNE9z5Y72c9nI74kGo\"",
+									"type": "text"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 09 Nov 2025 18:36:11 GMT",
+									"type": "text"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive",
+									"type": "text"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"order\": {\n        \"userId\": \"690f7cc4fb5030cc54821f2d\",\n        \"total\": 2200,\n        \"discount\": 0,\n        \"createdAt\": \"2025-11-09T18:36:11.501Z\",\n        \"updatedAt\": \"2025-11-09T18:36:11.501Z\",\n        \"id\": \"6910df1be842aa624190ddd7\",\n        \"orderItems\": [\n            {\n                \"orderId\": \"6910df1be842aa624190ddd7\",\n                \"bookId\": \"691059011ea34870ed41cc5f\",\n                \"quantity\": 2,\n                \"priceAtPurchase\": 300,\n                \"createdAt\": \"2025-11-09T18:36:11.557Z\",\n                \"updatedAt\": \"2025-11-09T18:36:11.557Z\",\n                \"id\": \"6910df1be842aa624190ddd9\"\n            },\n            {\n                \"orderId\": \"6910df1be842aa624190ddd7\",\n                \"bookId\": \"691059011ea34870ed41cc60\",\n                \"quantity\": 2,\n                \"priceAtPurchase\": 800,\n                \"createdAt\": \"2025-11-09T18:36:11.557Z\",\n                \"updatedAt\": \"2025-11-09T18:36:11.557Z\",\n                \"id\": \"6910df1be842aa624190ddda\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Error",
+			"item": [
+				{
+					"name": "Unknown route",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/unknownRoute",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"unknownRoute"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "EXAMPLE Unknown route example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3003/api/unknownRoute",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3003",
+									"path": [
+										"api",
+										"unknownRoute"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "27"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b-tErK7k7BU0OBBIow7AL5RN3tcp4\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Nov 2025 09:53:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unknown route\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Error response",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/users/me",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "EXAMPLE Error response example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3003/api/users/me",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3003",
+									"path": [
+										"api",
+										"users",
+										"me"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "80"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"50-3ewAJw8cTY+7Y3VJ1NY8EtvMxc8\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Nov 2025 09:55:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Unauthorized\",\n    \"message\": \"No token found. Please try logging in again\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Referrals",
+			"item": [
+				{
+					"name": "Get user's referral statistics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/referrals/stats/6910f52057422291963a24ec",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"referrals",
+								"stats",
+								"6910f52057422291963a24ec"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "EXAMPLE Get user's referral statistics",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3003/api/referrals/stats/6910f52057422291963a24ec",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3003",
+									"path": [
+										"api",
+										"referrals",
+										"stats",
+										"6910f52057422291963a24ec"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "25"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"19-B8OynQ84AXdVVM1r5nlPHx3nu3Y\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Nov 2025 10:04:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"total\": 1,\n    \"converted\": 1\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:3003",
+			"type": "string"
+		}
+	]
+}

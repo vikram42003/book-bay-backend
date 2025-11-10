@@ -80,3 +80,17 @@ export const orderZodSchema = orderInputZodSchema.safeExtend({
   orderItems: z.array(orderItemZodSchema).optional(),
 });
 export type OrderType = z.infer<typeof orderZodSchema>;
+
+// PopulatedOrderType
+// When we fetch current users all orders, then backend will populate the orderitems and
+// books so that we dont have to make multiple requests
+// This new schema defines an order item where bookId is a full BookType object
+export const populatedOrderItemSchema = orderItemZodSchema.omit({ bookId: true }).extend({
+  bookId: bookZodSchema,
+});
+
+export const populatedOrderZodSchema = orderZodSchema.omit({ orderItems: true }).extend({
+  orderItems: z.array(populatedOrderItemSchema).optional(),
+});
+
+export type PopulatedOrderType = z.infer<typeof populatedOrderZodSchema>;
