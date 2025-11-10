@@ -1,20 +1,106 @@
 
 
-### **Postman Collection**
+# Book Bay - Backend
 
-Import the collection found at:
+This repository contains the backend service for the Book Bay application, a digital product platform with a complete referral and credit system.
 
+The system allows users to register, receive a unique referral code, and earn credits when their referred users make their first purchase. It's built with a focus on clean architecture, scalability, and data integrity.
+
+**This repo is mainly for detailing the backend and the API routes, please check out the frontend repo here for a complete overview of the project, including Entity Relationship and UML diagrams for backend and the app flow, complete tech stack and more**
+
+---
+
+## Features
+
+*   **User Authentication**: Secure user registration and login using JWT for session management.
+*   **Referral Management**: Each user gets a unique referral code upon registration. The system tracks the relationship between referrers and referred users.
+*   **Reliable Credit System**: Both the referrer and the new user earn 2 credits after the new user's first purchase. Logic is in place to prevent double-crediting.
+*   **Purchase Simulation**: Endpoints to simulate a user purchasing items.
+*   **Developer-Focused**: Special development-only routes for easier testing and database seeding/cleaning.
+
+---
+
+## Tech Stack
+
+*   **Framework**: Node.js with Express.js
+*   **Language**: TypeScript
+*   **Database**: MongoDB with Mongoose for object data modeling.
+*   **Authentication**: JSON Web Tokens (JWT)
+*   **Validation**: Server-side validation to ensure data integrity.
+
+---
+
+## Getting Started
+
+Follow these instructions to get the backend server up and running on your local machine.
+
+### **Prerequisites**
+
+*   Node.js (v18.x or higher recommended)
+*   npm, pnpm, yarn etc
+*   MongoDB (local instance or a cloud-hosted version like MongoDB Atlas)
+
+I prefer to use pnpm. Substitute the commands with your package manager equivalent.
+eg. `yarn install` => `npm install`
+### **1. Clone the Repository**
+
+```bash
+git clone <repo-url>
+cd book-bay-backend
 ```
-/postman/Book-Bay-API.postman_collection.json
+
+### **2. Install Dependencies**
+
+```bash
+npm install
+# or
+pnpm install
+# or
+yarn install
 ```
 
-It includes all endpoints with example requests and responses.
+### **3. Set Up Environment Variables**
+
+Create a `.env` file in the root of the project by copying the example file:
+
+```bash
+cp .env.example .env
+```
+
+Now, open the `.env` file and fill in the required values:
+
+*   `PORT`: The port the server will run on (e.g., 3003).
+*   `MONGODB_URL`: Your MongoDB connection string.
+*   `JWT_SECRET`: A long, random string for signing tokens. You can generate one with `openssl rand -base64 32`.
+*   `NODE_ENV`: Set to `development` to enable helpful dev-only routes, otherwise it defaults to `production`.
+
+### **4. Run the Server**
+
+```bash
+npm run dev
+# or
+pnpm run dev
+# or
+yarn run dev
+```
+
+The server will start, and you should see a confirmation message in your console.
 
 ---
 
 ## API Endpoints
 
 **Base URL:** `http://localhost:3003`
+
+### **Postman Collection**
+
+To easily test all available endpoints, import the Postman collection found at:
+
+```
+/postman/Book-Bay-API.postman_collection.json
+```
+
+It includes all endpoints with example requests, responses, and required authentication setups.
 
 Below is a quick summary of the main API endpoints.
 For full examples, refer to the included Postman collection.
