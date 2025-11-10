@@ -14,7 +14,7 @@ interface AuthenticatedRequest extends Request {
 }
 
 // GET /api/users/me - get the current user's details
-userRouter.get("/me", extractUserFromTokenMiddleware, async (req: AuthenticatedRequest, res: Response) => {
+userRouter.get("/me", extractUserFromTokenMiddleware, (req: AuthenticatedRequest, res: Response) => {
   try {
     if (!req.user) {
       return res.status(401).json({ error: "Unauthorized", message: "Please try logging in again" });

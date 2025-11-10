@@ -15,10 +15,8 @@ const claimReferral = async (user: IUser): Promise<IReferral | null> => {
     status: "PENDING",
   });
 
-  console.log(referral);
   // Referral must have already been redeemed
   if (!referral) {
-    console.log("EARLY EXIT???");
     await User.findByIdAndUpdate(user.id, { referralStatus: "CONVERTED" });
     return null;
   }
@@ -28,7 +26,6 @@ const claimReferral = async (user: IUser): Promise<IReferral | null> => {
   // The user who referred them can take the bonus unlimited times from any of their referral users, so just increase
   await User.findByIdAndUpdate(user.referrerId, { $inc: { credits: 2 } });
   const newReferral = await Referral.findByIdAndUpdate(referral.id, { status: "CONVERTED" });
-  console.log("FINISHED REFERRAL");
   return newReferral;
 };
 
