@@ -14,7 +14,7 @@ export interface IUser extends Document {
 const userSchema = new Schema<IUser>(
   {
     username: { type: String, required: true, unique: true },
-    password: { type: String, required: true, select: false },
+    password: { type: String, required: true },
     referralCode: { type: String, required: true, unique: true },
     referralStatus: { type: String, enum: ["PENDING", "CONVERTED"], default: "PENDING" },
     credits: { type: Number, default: 0 },

@@ -36,7 +36,6 @@ const loginUser = async (username: string, password: string): Promise<IUser | nu
   if (!user) {
     return null;
   }
-
   const isThePasswordCorrect = await bcrypt.compare(password, user.password);
   if (!isThePasswordCorrect) {
     return null;
