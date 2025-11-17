@@ -1,7 +1,7 @@
 import { Router, IRouter, Request, Response } from "express";
 import { IUser } from "../models/User";
 import orderService from "../services/orderService";
-import referralServie from "../services/referralService";
+import referralService from "../services/referralService";
 
 interface AuthenticatedRequest extends Request {
   user?: IUser;
@@ -53,7 +53,7 @@ orderRouter.post("/", async (req: AuthenticatedRequest, res: Response) => {
     // If this user hasnt claimed their referral credits then do the crediting
     let referral;
     if (user.referralStatus && user.referralStatus === "PENDING") {
-      referral = await referralServie.claimReferral(user);
+      referral = await referralService.claimReferral(user);
     }
 
     const orderToReturn = {
