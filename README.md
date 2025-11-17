@@ -17,6 +17,7 @@ The system allows users to register, receive a unique referral code, and earn cr
 ## Features
 
 *   **User Authentication**: Secure user registration and login using JWT for session management.
+*   **Data Integrity & Performance**: Uses advanced database features like MongoDB indices and transactions to ensure high database performance, data integrity, and ACID compliance.
 *   **Referral Management**: Each user gets a unique referral code upon registration. The system tracks the relationship between referrers and referred users.
 *   **Reliable Credit System**: Both the referrer and the new user earn 2 credits after the new user's first purchase. Logic is in place to prevent double-crediting.
 *   **Purchase Simulation**: Endpoints to simulate a user purchasing items.
