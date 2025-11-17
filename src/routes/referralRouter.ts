@@ -1,5 +1,5 @@
 import { Router, IRouter, Request, Response } from "express";
-import referralServie from "../services/referralService";
+import referralService from "../services/referralService";
 
 const referralRouter: IRouter = Router();
 
@@ -11,7 +11,7 @@ referralRouter.get("/stats/:id", async (req: Request, res: Response) => {
     }
 
     const id = req.params.id;
-    const allReferrals = await referralServie.getAllReferralsByReferrerId(id);
+    const allReferrals = await referralService.getAllReferralsByReferrerId(id);
     const totalReferredUsers = allReferrals.length;
     const totalConvertedUsers = allReferrals.filter((referral) => referral.status === "CONVERTED").length;
 
