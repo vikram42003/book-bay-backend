@@ -1,7 +1,7 @@
 import { Router, IRouter, Request, Response } from "express";
 import { mongo } from "mongoose";
 import userService from "../services/userService";
-import referralServie from "../services/referralService";
+import referralService from "../services/referralService";
 import authService from "../services/authService";
 import ENV from "../utils/env";
 import extractUserFromTokenMiddleware from "../utils/extractUserFromTokenMiddleware";
@@ -66,7 +66,7 @@ userRouter.post("/register", async (req: Request, res: Response) => {
 
     // If referral code was correct, then create a referral item, so that we can do the credit both users logic
     if (referredByUser) {
-      await referralServie.createReferral(referredByUser, newUser);
+      await referralService.createReferral(referredByUser, newUser);
     }
 
     // create the jwt token and return
