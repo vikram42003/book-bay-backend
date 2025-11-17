@@ -78,7 +78,18 @@ Now, open the `.env` file and fill in the required values:
 *   `JWT_SECRET`: A long, random string for signing tokens. You can generate one with `openssl rand -base64 32`.
 *   `NODE_ENV`: Set to `development` to enable helpful dev-only routes, otherwise it defaults to `production`.
 
-### **4. Run the Server**
+### **4. Seed the database**
+The app has a database seeding script that fetches the specified number of books from Google Books API and seeds the database with it.
+
+```bash
+npm run seed
+# or
+pnpm run seed
+# or
+yarn run seed
+```
+
+### **5. Run the Server**
 
 ```bash
 npm run dev

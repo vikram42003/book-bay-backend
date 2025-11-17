@@ -26,26 +26,14 @@ const claimReferral = async (user: IUser): Promise<IReferral | null> => {
       );
 
       if (!referral) {
-        await User.findByIdAndUpdate(
-          user.id,
-          { referralStatus: "CONVERTED" },
-          { session }
-        );
+        await User.findByIdAndUpdate(user.id, { referralStatus: "CONVERTED" }, { session });
         return null;
       }
 
-      await User.findByIdAndUpdate(
-        user.id,
-        { referralStatus: "CONVERTED", $inc: { credits: 2 } },
-        { session }
-      );
+      await User.findByIdAndUpdate(user.id, { referralStatus: "CONVERTED", $inc: { credits: 2 } }, { session });
 
-      await User.findByIdAndUpdate(
-        user.referrerId,
-        { $inc: { credits: 2 } },
-        { session }
-      );
-      
+      await User.findByIdAndUpdate(user.referrerId, { $inc: { credits: 2 } }, { session });
+
       const newReferral = await Referral.findByIdAndUpdate(
         referral.id,
         { status: "CONVERTED" },
@@ -57,11 +45,16 @@ const claimReferral = async (user: IUser): Promise<IReferral | null> => {
     return result;
   } catch (error) {
     console.error("Referral claim transaction failed:", error);
-    throw error; 
+    throw error;
   } finally {
     await session.endSession();
   }
 };
+
+const getAllReferralsByReferrerId = async (referrerId: string): Promise<IReferral[]> => {
+  return await Referral.find({ referrerId });
+};
+
 const referralService = {
   createReferral,
   claimReferral,
